@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>devops-springboot</groupId>
 	<artifactId>devops-springboot</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>devops-springboot</name>
 	<description>Demo project for Spring Boot</description>
@@ -51,7 +51,7 @@
 
 <url>git@github.com:sriniharika/devops_springboot.git</url>
 
-<tag>devops-springboot-0.0.1</tag>
+<tag>v0.0.1</tag>
 
 </scm>
 	<dependencies>
