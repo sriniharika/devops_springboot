@@ -30,7 +30,7 @@ node {
       }
    }
 stage('Deploy'){
-sh "curl -u admin:admin -T target/**.war http://localhost:7080/manager/text/deploy?path=/ibmdevops&update=true";
+sh 'curl -u admin:admin -T target/**.war "http://localhost:7080/manager/text/deploy?path=/ibmdevops&update=true"';
 }
 
 stage('Smoke') {
