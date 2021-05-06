@@ -5,7 +5,7 @@ node{
 		mvnHome = tool 'mvn'
 	}
 	stage('Build'){
-		sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+		bat "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
 	}
 	
 	stage('Unit Test'){
@@ -13,18 +13,18 @@ node{
 		archive 'target/*.jar'
 	}
 	stage('Integration Test'){
-		sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean verify"
+		bat "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean verify"
 	}
 	
 	stage('Sonar'){
-		sh "'${mvnHome}/bin/mvn' sonar:sonar"
+		bat "'${mvnHome}/bin/mvn' sonar:sonar"
 	}
 	
 	stage('Deploy'){
-		sh 'curl -u admin:admin -T target/**.war "http://localhost:7080/manager/text/deploy?path=/ibmdevops&update=true"'
+		bat 'curl -u admin:admin -T target/**.war "http://localhost:7080/manager/text/deploy?path=/ibmdevops&update=true"'
 	}
 	
 	stage('Smoke'){
-		sh "curl --retry-delay 10 --retry 5 http://localhost:7080/ibmdevops/api/v1/products"
+		bat "curl --retry-delay 10 --retry 5 http://localhost:7080/ibmdevops/api/v1/products"
 	}
 }
