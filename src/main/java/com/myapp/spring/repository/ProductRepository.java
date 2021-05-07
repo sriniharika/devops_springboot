@@ -21,7 +21,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
 	
 	Optional<List<Product>> findByProductNameOrPrice(String productName,Double price);
 	
-    Optional<List<Product>> findByProductNameLike(Optional<String> productName);
+    Optional<List<Product>> findByProductNameLike(String productName);
     
     Optional<List<Product>> findByPriceIn(Collection<Double> prices);
     
